@@ -12,6 +12,7 @@ backend_packages = [
   "pants.backend.python",
   "pants.backend.experimental.python", # activates twine `publish` support
   "pants.backend.python.mixed_interpreter_constraints",
+  "pants.backend.python.lint.pylint",
 
   # shell
   "pants.backend.shell",
@@ -79,4 +80,24 @@ root_patterns = [
   "/tools",
   # benchmarks
   "/st2common/benchmarks/micro",
+]
+
+[pylint]
+version = "pylint==2.6.0"
+extra_requirements = [
+  # dep used by /pylint_plugins/{api_models,db_models}
+  "astroid==2.4.2",
+  # not sure where this is used
+  #"pylint-plugin-utils>=0.4",
+]
+config = "lint-configs/python/.pylintrc"
+source_plugins = [
+  # the /pylint_plugins directory
+  "pylint_plugins",
+]
+args = [
+  # needed in st2* components, runners, packs
+  "--load-plugins=pylint_plugins.api_models",
+  # needed in st2* components, runners
+  "--load-plugins=pylint_plugins.db_models",
 ]
