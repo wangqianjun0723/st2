@@ -12,6 +12,7 @@ backend_packages = [
   "pants.backend.python",
   "pants.backend.experimental.python", # activates twine `publish` support
   "pants.backend.python.mixed_interpreter_constraints",
+
   "pants.backend.python.lint.pylint",
 
   # shell
@@ -21,6 +22,7 @@ backend_packages = [
 # pants ignores files in .gitignore, .*/ directories, /dist/ directory, and __pycache__.
 pants_ignore.add = [
   # TODO: remove these once we start building wheels with pants.
+
   "dist_utils.py",
   "setup.py",
   # keep tailor from using legacy requirements files (not for pants)
@@ -83,13 +85,7 @@ root_patterns = [
 ]
 
 [pylint]
-version = "pylint==2.6.0"
-extra_requirements = [
-  # dep used by /pylint_plugins/{api_models,db_models}
-  "astroid==2.4.2",
-  # not sure where this is used
-  #"pylint-plugin-utils>=0.4",
-]
+version = "pylint==2.7.4"
 config = "lint-configs/python/.pylintrc"
 source_plugins = [
   # the /pylint_plugins directory
