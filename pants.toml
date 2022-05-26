@@ -86,7 +86,7 @@ root_patterns = [
 pylint_plugins = "lockfiles/pylint" # same as pylint tool lockfile
 
 [pylint]
-version = "pylint==2.7.4"
+version = "pylint~=2.8.2"
 config = "lint-configs/python/.pylintrc"
 source_plugins = [
   # the /pylint_plugins directory
