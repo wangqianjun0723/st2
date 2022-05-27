@@ -6,6 +6,6 @@ python_tests(
 
 python_requirement_library(
     name="astroid",
-    #requirements=["astroid==2.4.2"],
-    requirements=["astroid"],
+    requirements=["astroid==2.5.6"], # required by pylint 2.8
+    # requirements=["astroid"],
 )
