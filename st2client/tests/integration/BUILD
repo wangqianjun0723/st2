@@ -1,7 +1,1 @@
 __defaults__({python_tests: dict(tags=["integration"])})
-
-python_sources()
-
-python_tests(
-    name="tests",
-)
